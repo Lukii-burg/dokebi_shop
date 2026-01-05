@@ -1,0 +1,725 @@
+/* ===============================
+   PREMIUM DOKEBI TEKOKU THEME
+   =============================== */
+
+:root {
+    /* DARK THEME (default) */
+    --bg: #1b1f27;
+    --panel: #212631;
+    --panel-2: #2d323d;
+    --text: #d2d3d7;
+    --border: #3c414d;
+
+    --accent-orange: #ff7a18;
+    --accent-purple: #8f57ff;
+    --accent-mint: #4ef0c2;
+
+    /* LIGHT THEME */
+    --light-bg: #ece7ff;        /* soft lavender */
+    --light-panel: #ffffff;     /* clean white */
+    --light-panel-2: #f2f1ff;   /* light purple */
+    --light-text: #2c2f38;
+    --light-border: #c6c0e8;
+
+    --transition: 0.35s;
+}
+
+/* ===================================
+   DARK MODE (default)
+   =================================== */
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    transition: background var(--transition), color var(--transition);
+}
+
+/* ===================================
+   LIGHT MODE OVERRIDES
+   =================================== */
+body.light-mode {
+    --bg: var(--light-bg);
+    --panel: var(--light-panel);
+    --panel-2: var(--light-panel-2);
+    --text: var(--light-text);
+    --border: var(--light-border);
+}
+
+/* ===================================
+   SIDEBAR
+   =================================== */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: var(--panel);
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-right: 1px solid var(--border);
+    box-shadow: 4px 0 12px rgba(0,0,0,0.25);
+    padding-top: 25px;
+    transition: background var(--transition), color var(--transition);
+}
+
+.sidebar a {
+    display: block;
+    padding: 14px 22px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 16px;
+    transition: 0.25s;
+}
+
+/* Active menu item */
+.sidebar a.active-link {
+    background: var(--accent-orange);
+    color: #fff !important;
+}
+
+/* Hover only affects non-active items */
+.sidebar a:hover:not(.active-link) {
+    background: rgba(255, 122, 24, 0.4);
+    padding-left: 30px;
+}
+
+/* ===================================
+   TOPBAR
+   =================================== */
+.topbar {
+    margin-left: 250px;
+    background: var(--panel);
+    color: var(--text);
+    padding: 16px 28px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background var(--transition), color var(--transition);
+}
+
+/* ===================================
+   CONTENT
+   =================================== */
+.content {
+    margin-left: 250px;
+    padding: 25px;
+}
+
+/* ===================================
+   CARDS (Dashboard stats)
+   =================================== */
+.card {
+    background: var(--panel);
+    padding: 18px 20px;
+    border-radius: 14px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.35);
+    margin-right: 18px;
+    margin-bottom: 18px;
+    min-width: 220px;
+    display: inline-block;
+    transition: transform 0.2s, background var(--transition), color var(--transition);
+}
+.card:hover {
+    transform: translateY(-3px);
+}
+
+/* ===================================
+   FORM CARD (add/edit forms)
+   =================================== */
+.form-card {
+    background: var(--panel);
+    padding: 25px;
+    border-radius: 14px;
+    width: 480px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.35);
+    transition: background var(--transition), color var(--transition);
+}
+
+.form-card input,
+.form-card textarea,
+.form-card select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--panel-2);
+    color: var(--text);
+    margin-bottom: 10px;
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.form-card input:focus,
+.form-card textarea:focus,
+.form-card select:focus {
+    outline: 2px solid var(--accent-purple);
+}
+
+/* ===================================
+   BUTTONS
+   =================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    background: var(--panel-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+.btn:hover {
+    background: var(--accent-purple);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(143, 87, 255, 0.35);
+}
+
+.btn-orange {
+    display: inline-block;
+    padding: 10px 16px;
+    background: var(--accent-orange);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.25s;
+    border: none;
+}
+.btn-orange:hover {
+    background: var(--accent-purple);
+    padding-left: 22px;
+}
+
+/* Table action links */
+a.action-edit {
+    color: var(--accent-purple);
+}
+a.action-delete {
+    color: #ff4c4c;
+}
+
+/* ===================================
+   TABLES
+   =================================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--panel);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th {
+    background: var(--panel-2);
+    padding: 14px;
+    text-align: left;
+    color: var(--text);
+}
+
+td {
+    padding: 12px;
+    color: var(--text);
+}
+
+tr:nth-child(even) {
+    background: var(--panel-2);
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.wide-card {
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+.status-pill {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    font-size: 13px;
+}
+.status-pill.pending { color: var(--accent-orange); }
+.status-pill.approved { color: var(--accent-mint); border-color: var(--accent-mint); }
+.status-pill.rejected { color: #ff6b6b; border-color: #ff6b6b; }
+
+.rating-badge {
+    font-weight: 700;
+    color: var(--accent-orange);
+}
+
+.comment-cell {
+    max-width: 360px;
+    white-space: pre-wrap;
+}
+
+/* ===================================
+   DARK/LIGHT SWITCH
+   =================================== */
+.switch-container {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.switch-toggle {
+    width: 50px;
+    height: 24px;
+    background: #555;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    transition: background var(--transition);
+}
+
+.switch-toggle::after {
+    content: "";
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    transition: transform var(--transition);
+}
+
+body.light-mode .switch-toggle {
+    background: var(--accent-mint);
+}
+
+body.light-mode .switch-toggle::after {
+    transform: translateX(24px);
+}
+
+/* ===================================
+   ALERT POPUP
+   =================================== */
+.alert-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.75);
+    background: var(--panel);
+    padding: 20px 30px;
+    border: 2px solid var(--accent-orange);
+    border-radius: 12px;
+    color: var(--text);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+    z-index: 9999;
+}
+.alert-box.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+/* ===================================
+   ACTION BUTTONS IN TABLE
+   =================================== */
+
+.action-btn {
+    padding: 6px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.25s;
+    display: inline-block;
+}
+
+/* EDIT BUTTON */
+.btn-edit {
+    background: var(--accent-purple);
+    color: #fff;
+}
+.btn-edit:hover {
+    background: #a277ff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(130, 100, 255, 0.4);
+}
+
+/* DELETE BUTTON */
+.btn-delete {
+    background: #ff4c4c;
+    color: white;
+}
+.btn-delete:hover {
+    background: #ff6b6b;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(255, 80, 80, 0.4);
+}
+
+/* Ghost / secondary button */
+.btn-ghost {
+    display: inline-block;
+    padding: 10px 16px;
+    background: var(--panel-2);
+    color: var(--text);
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: 0.2s;
+}
+.btn-ghost:hover {
+    border-color: var(--accent-purple);
+    color: var(--accent-purple);
+}
+
+/* Filter bar */
+.filter-bar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 12px;
+    margin-bottom: 14px;
+    background: var(--panel);
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+.filter-input,
+.filter-select {
+    min-height: 42px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--panel-2);
+    color: var(--text);
+    padding: 0 12px;
+    font-size: 14px;
+}
+.filter-input:focus,
+.filter-select:focus {
+    outline: 2px solid var(--accent-purple);
+}
+.filter-input {
+    flex: 1;
+    min-width: 220px;
+    height: 42px;
+}
+.filter-select {
+    min-width: 150px;
+}
+.select-compact {
+    min-width: 120px;
+    height: 38px;
+}
+
+/* Action button stack */
+.action-stack {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.action-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.action-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+/* Payment action layout */
+.payment-actions {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.pay-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 180px;
+}
+.pay-col .filter-select,
+.pay-col .action-btn {
+    width: 100%;
+    text-align: center;
+}
+
+/* ===============================
+   CATEGORY LAYOUT — FIXED TO MATCH ADMIN THEME
+   =============================== */
+
+/* Remove white background override */
+.cat-body {
+    background: var(--bg) !important;
+}
+
+/* Container uses same spacing as products page */
+.cat-main {
+    margin-left: 250px;
+    padding: 25px;
+    background: var(--bg);
+    color: var(--text);
+    transition: var(--transition);
+}
+
+/* Table container identical to products table */
+.cat-container {
+    background: var(--panel);
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.35);
+    margin-bottom: 20px;
+    transition: background var(--transition), color var(--transition);
+}
+
+/* Titles */
+.cat-header h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* Add Category Button */
+.cat-topbar .btn-orange {
+    background: var(--accent-orange);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.25s;
+}
+.cat-topbar .btn-orange:hover {
+    background: var(--accent-purple);
+}
+
+/* Fix card/table style */
+.cat-table-card {
+    background: var(--panel);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+/* Table spacing identical to Products */
+.cat-table-only table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cat-table-only th {
+    background: var(--panel-2);
+    padding: 14px;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+}
+
+.cat-table-only td {
+    padding: 12px;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+}
+
+.cat-table-only tr:nth-child(even) {
+    background: var(--panel-2);
+}
+
+/* Status pills matching product UI */
+.cat-status-pill {
+    padding: 6px 12px;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Edit/Delete buttons identical to product page */
+.cat-action-btn {
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.25s;
+    margin-right: 6px;
+}
+
+.cat-action-edit {
+    background: var(--accent-purple);
+    color: #fff;
+}
+.cat-action-edit:hover {
+    background: #a277ff;
+}
+
+.cat-action-delete {
+    background: #ff4c4c;
+    color: #fff;
+}
+.cat-action-delete:hover {
+    background: #ff6b6b;
+}
+
+/* ===================================
+   FIX ADD CATEGORY / ADD MAIN CATEGORY FORMS
+   Match Products Add UI
+   =================================== */
+
+.cat-form-wrapper {
+    margin-left: 250px;
+    padding: 40px 25px;
+    color: var(--text);
+}
+
+.cat-form-card {
+    background: var(--panel);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 0 18px rgba(0,0,0,0.35);
+    max-width: 550px;
+    transition: background var(--transition), color var(--transition);
+}
+
+.cat-form-card h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* Inputs */
+.cat-form-card input,
+.cat-form-card select,
+.cat-form-card textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--panel-2);
+    color: var(--text);
+    margin-bottom: 14px;
+    font-size: 15px;
+    transition: var(--transition);
+}
+
+.cat-form-card input:focus,
+.cat-form-card select:focus,
+.cat-form-card textarea:focus {
+    outline: 2px solid var(--accent-purple);
+}
+
+/* Checkbox row */
+.cat-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    font-size: 15px;
+}
+
+/* Buttons */
+.cat-form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.cat-btn-back {
+    padding: 10px 18px;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.25s;
+    text-decoration: none;
+}
+
+.cat-btn-back:hover {
+    border-color: var(--accent-purple);
+    color: var(--accent-purple);
+}
+
+.cat-btn-create {
+    padding: 10px 20px;
+    background: var(--accent-orange);
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.25s;
+    border: none;
+}
+
+.cat-btn-create:hover {
+    background: var(--accent-purple);
+    padding-left: 24px;
+}
+
+/* Review page improvements */
+.rating-badge {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--accent-orange);
+}
+
+.status-pill {
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    font-size: 13px;
+}
+
+.status-pill.pending {
+    color: var(--accent-orange);
+    border-color: var(--accent-orange);
+}
+
+.status-pill.approved {
+    color: var(--accent-mint);
+    border-color: var(--accent-mint);
+}
+
+.status-pill.rejected {
+    color: #ff4c4c;
+    border-color: #ff4c4c;
+}
+
+.comment-cell {
+    max-width: 300px;
+    white-space: pre-wrap;
+    line-height: 1.4;
+}
+
+.action-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.table th {
+    font-weight: 600;
+    font-size: 15px;
+}

@@ -1,0 +1,25 @@
+{
+  "name": "dokebi/family",
+  "description": "Dokebi Family app",
+  "type": "project",
+  "require": {
+    "phpmailer/phpmailer": "dev-main"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "vendor_tmp/PHPMailer-master"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Dokebi\\": "includes/"
+    },
+    "files": []
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  }
+}
